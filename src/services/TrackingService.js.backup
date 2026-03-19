@@ -1,0 +1,8 @@
+// Add a method to stop tracking after a certain time has elapsed
+stopAfterElapsedMinutes(minutes) {
+  const stopTime = new Date().getTime() + minutes * 60000;
+  this.backgroundGeolocation.stop();
+  setTimeout(() => {
+    this.backgroundGeolocation.stop();
+  }, stopTime - new Date().getTime());
+}
